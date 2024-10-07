@@ -22,6 +22,15 @@ body {
   padding-top: 120px;
 }
 
+main {
+  background-color: cornsilk; 
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
