@@ -16,11 +16,10 @@ html {
 
 body {
   color: #545149;
-  background-color: #f4f1ec;
+  background-color: cornsilk;
   font-size: 24px;
-  font-family: "Source Sans 3", system-ui;
-  font-optical-sizing: auto;
-  font-style: normal;
+  font-family: 'Source Sans 3', sans-serif;
+  padding-top: 120px;
 }
 
 
