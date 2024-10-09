@@ -22,10 +22,11 @@ body {
   padding-top: 120px;
 }
 
-main {
-  background-color: cornsilk; 
+.container {
+  background-color: inherit; 
   width: 90%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
   margin: 0 auto;
