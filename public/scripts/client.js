@@ -5,55 +5,52 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
-  
-  const handleUserTweet = (event) => {
-    event.preventDefault();
-    const tweetMessage = $("#tweet-text").val();
-    console.log(tweetMessage.length);
-
-    if (tweetMessage.length === 0) {
-      alert("cant post empty tweet");
-      return;
-    }
-    if (tweetMessage.length > 140) {
-      alert("Tweet is too long to post. Please keep the limit to 140 characters");
-      return;
-    }
-
-  
-    const userTweet = $("#user-tweet").serialize();
-
-    $.ajax({
-      method: 'POST',
-      url: '/tweets',
-      data: userTweet,
-      success: (response) => {
-        console.log('Success: ',response);
-      },
-      error: (error) => {
-        console.error('Error',error);
-      }
-    })
-  };
   const loadTweets = () => {
     $.ajax ({
       method: 'GET',
       url: '/tweets',
-      dataType: 'JSON',
       success: (data) => {
         renderTweets(data);
-        
       },
       error: (error) => {
         console.log('this request failed and this was the error', error);
       },
     });
   }
-  loadTweets();
-  $('#user-tweet').submit(handleUserTweet);
   
+  const handleUserTweet = (event) => {
+    event.preventDefault();
+    const tweetMessage = $("#tweet-text").val();
 
+    if (tweetMessage.length === 0) {
+      alert("cant post empty tweet");
+      return false;
+    }
+    if (tweetMessage.length > 140) {
+      alert("Tweet is too long to post. Please keep the limit to 140 characters");
+      return false;
+    }
 
+  
+    const userTweet = $("#user-tweet").serialize();
+    console.log("User Tweet: ",userTweet);
+
+    $.ajax({
+      method: 'POST',
+      url: '/tweets',
+      data: userTweet,
+      success: () => {
+        loadTweets();
+      },
+      error: (error) => {
+        console.log('Error',error);
+      }
+    })
+  };
+
+  $('#user-tweet').submit(handleUserTweet);
+  loadTweets();
+  
   const createTweetElement = (tweet) => {
 
       const $article = $("<article></article>").addClass("tweet");
