@@ -35,4 +35,17 @@ button {
   justify-content: space-between;
   align-items: center;
 }
+.error-message {
+  display: none;
+  text-align: center;
+  justify-content: center;
+  width: 50%;
+  height: 60px;
+  margin: auto;
+  padding: 10px;
+  border: 5px solid hsl(0, 100%, 47%);
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: bold;
+  border-radius: 15px;
 
+}
