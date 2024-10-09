@@ -8,6 +8,19 @@ $(document).ready(function() {
   
   const handleUserTweet = (event) => {
     event.preventDefault();
+    const tweetMessage = $("#tweet-text").val();
+    console.log(tweetMessage.length);
+
+    if (tweetMessage.length === 0) {
+      alert("cant post empty tweet");
+      return;
+    }
+    if (tweetMessage.length > 140) {
+      alert("Tweet is too long to post. Please keep the limit to 140 characters");
+      return;
+    }
+
+  
     const userTweet = $("#user-tweet").serialize();
 
     $.ajax({
