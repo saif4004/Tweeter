@@ -21,13 +21,27 @@ $(document).ready(function() {
 
       const $article = $("<article></article>").addClass("tweet");
       const $header = $("<header></header>");
-      const $footer = $("<footer></footer>");
+      const $contentHeaderDiv = $("<div></div>").addClass("content-header");
       const $img = $("<img>").attr("src", tweet.user.avatars);
       const $h2 = $("<h2></h2>").text(tweet.user.name);
       const $h3 = $("<h3></h3>").text(tweet.user.handle);
       const $p = $("<p></p>").text(tweet.content.text);
 
-      $header.append($img).append($h2).append($h3);
+      //Footer with the icons 
+      const $footer = $("<footer></footer>");
+      const $iconDiv = $("<div></div>");
+      const $faHeart = $("<i class='fa-solid fa-heart'></i>");
+      const $faFlag = $("<i class='fa-solid fa-flag'></i>");
+      const $faRetweet = $("<i class='fa-solid fa-retweet'></i>");
+      const $span = $("<span></span>").text(tweet.created_at);
+
+      $contentHeaderDiv.append($img).append($h2);
+
+      $iconDiv.append($faHeart).append($faFlag).append($faRetweet);
+
+      $header.append($contentHeaderDiv).append($h3);
+
+      $footer.append($span).append($iconDiv);
       
       $article.append($header).append($p).append($footer);
 
