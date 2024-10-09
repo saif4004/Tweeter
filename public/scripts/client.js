@@ -23,11 +23,13 @@ $(document).ready(function() {
     const tweetMessage = $("#tweet-text").val();
 
     if (tweetMessage.length === 0) {
-      alert("cant post empty tweet");
+      $(".error-message").text("❗❗❗❗ Cant post empty tweet ❗❗❗❗");
+      $(".error-message").css('display', 'flex');
       return false;
     }
     if (tweetMessage.length > 140) {
-      alert("Tweet is too long to post. Please keep the limit to 140 characters");
+      $(".error-message").text("❗❗❗❗Tweet is too long to post. Please keep the limit to 140 characters ❗❗❗❗");
+      $(".error-message").css('display', 'flex');
       return false;
     }
 
@@ -87,6 +89,7 @@ $(document).ready(function() {
   }
 
   const renderTweets = function(tweets) {
+    $('.tweets-container').empty();
     for (const $tweet of tweets) {
       $('.tweets-container').append(createTweetElement($tweet));
     }
