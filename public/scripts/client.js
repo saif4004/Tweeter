@@ -35,19 +35,21 @@ $(document).ready(function() {
 
   
     const userTweet = $("#user-tweet").serialize();
-    console.log("User Tweet: ",userTweet);
 
     $.ajax({
       method: 'POST',
       url: '/tweets',
       data: userTweet,
       success: () => {
+        $("#tweet-text").val('');
+        $(".counter").text(140);
         loadTweets();
       },
       error: (error) => {
         console.log('Error',error);
       }
     })
+
   };
 
   $('#user-tweet').submit(handleUserTweet);
