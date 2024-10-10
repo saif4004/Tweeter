@@ -1,0 +1,36 @@
+@media only screen and (min-width: 1024px) {
+  body{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    margin: 0;
+  }
+  body > header {
+
+    background-color: #d89f36; 
+    padding-top: 60px;
+    width: 30%;
+    margin-left: 7em; 
+    margin-top: 7em; 
+
+  }
+  .container {
+    width: 40%;
+    margin-right: 10em;
+  }
+}
+@media only screen and (max-width: 1023px) {
+  nav {
+    width: 100vw;
+    background-color: #e89300;
+    background-image: url("https://www.transparenttextures.com/patterns/binding-dark.png");
+    color:#FFFFFF;
+    padding: 0 1.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}
