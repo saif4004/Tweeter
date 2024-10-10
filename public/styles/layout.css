@@ -32,6 +32,11 @@ body {
   margin: 0 auto;
 }
 
+.tweet-title {
+  display: flex;
+  font-weight: bold; 
+  margin-top: 25px;
+}
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
