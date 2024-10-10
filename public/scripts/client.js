@@ -10,7 +10,9 @@ $(document).ready(function() {
       method: 'GET',
       url: '/tweets',
       success: (data) => {
+        $(".error-message").css('display', 'none');
         renderTweets(data);
+        
       },
       error: (error) => {
         console.log('this request failed and this was the error', error);
@@ -30,6 +32,7 @@ $(document).ready(function() {
     if (tweetMessage.length > 140) {
       $(".error-message").text("❗❗❗❗Tweet is too long to post. Please keep the limit to 140 characters ❗❗❗❗");
       $(".error-message").css('display', 'flex');
+
       return false;
     }
 
